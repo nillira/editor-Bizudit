@@ -19,7 +19,7 @@ def novo_arquivo():
 def abrir_arquivo():
     global caminho
     mensagem.set("Abrir fichero")
-    caminho = FileDialog.askopenfilename(initialdir=".", filetypes=(("Arquivos de texto", "*.txt"),),title="Abrir un fichero de texto")
+    caminho = FileDialog.askopenfilename(initialdir=".", filetypes=(("Arquivos de texto", "*.txt"),),title="Abrir um arquivo de texto")
 
     if caminho != "":
         arquivo = open(caminho,"r")
@@ -89,7 +89,7 @@ menu_export = Menu(menubar, tearoff=0)
 editmenu = Menu(menubar, tearoff=0)
 helpmenu = Menu(menubar, tearoff=0)
 
-#Archivo
+#Arquivo
 menu_pricipal.add_command(label="Novo",activebackground="blue",  command=novo_arquivo)
 menu_pricipal.add_command(label="Abrir", activebackground="blue", command=abrir_arquivo)
 menu_pricipal.add_command(label="Salvar Arquivo", activebackground="blue", command=salvar_arquivo)
@@ -98,6 +98,7 @@ menu_pricipal.add_separator()
 menu_pricipal.add_command(label="Sair", activebackground="black", command=base.quit)
 menubar.add_cascade(menu=menu_pricipal, label="Menu")
 
+#pdf
 menu_export.add_command(label="Salvar como PDF", activebackground="red", command=gerador_pdf)
 menubar.add_cascade(menu=menu_export, label="Exportar para PDF")
 
@@ -109,7 +110,7 @@ editmenu.add_command(label='Cortar                      (ctrl+X)', command=corta
 
 menubar.add_cascade(label="Editar", menu=editmenu)
 
-#Ayuda
+#Ajuda
 helpmenu.add_command(label="Help", command=acercaDe)
 menubar.add_cascade(label="Sobre", menu=helpmenu)
 
